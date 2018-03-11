@@ -1,0 +1,25 @@
+{
+  "name": "next-plugins",
+  "version": "0.1.0",
+  "description": "#todo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyrilwanner/next-plugins.git"
+  },
+  "keywords": [
+    "next.js",
+    "next",
+    "plugins",
+    "compose"
+  ],
+  "author": "Cyril Wanner <info@cyr.li>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cyrilwanner/next-plugins/issues"
+  },
+  "homepage": "https://github.com/cyrilwanner/next-plugins#readme"
+}
