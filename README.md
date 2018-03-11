@@ -1,6 +1,6 @@
 # 💡 next-plugins [![npm version](https://img.shields.io/npm/v/next-plugins.svg)](https://www.npmjs.com/package/next-plugins) [![license](https://img.shields.io/github/license/cyrilwanner/next-plugins.svg)](https://github.com/cyrilwanner/next-plugins/blob/master/LICENSE)
 
-Provides a cleaner API for enabling and configuring plugins for [next.js](https://github.com/zeit/next.js) because the default way next.js proposes to enable and configure plugins can get unclear and confusing when you have many plugins.
+Provides a cleaner API for enabling and configuring plugins for [next.js](https://github.com/zeit/next.js) because the default way next.js suggests to enable and configure plugins can get unclear and confusing when you have many plugins.
 
 It is often unclear which plugins are enabled or which configuration belongs to which plugin because they are nested and share one configuration object.
 This can also lead to orphaned configuration values when updating or removing plugins.
@@ -12,6 +12,7 @@ This can also lead to orphaned configuration values when updating or removing pl
 - [Installation](#installation)
 - [Usage](#usage)
 - [Example](#example)
+- [See also](#see-also)
 - [License](#license)
 
 ## Installation
@@ -104,6 +105,10 @@ module.exports = withSass(withOffline(withTypescript(withImages({
 }))));
 ```
 
+## See also
+
+See [zeit/next-plugins](https://github.com/zeit/next-plugins) for a list of official and community made plugins for [next.js](https://github.com/zeit/next.js).
+
 ## License
 
-[MIT](https://github.com/cyrilwanner/next-plugins/blob/master/LICENSE)
+[MIT](https://github.com/cyrilwanner/next-plugins/blob/master/LICENSE) © Cyril Wanner
