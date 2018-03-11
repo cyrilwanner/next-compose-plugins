@@ -32,7 +32,7 @@ module.exports = withPlugins([...plugins], nextConfiguration);
 
 Is an array containing all plugins and their configuration.
 If a plugin does not need additional configuration, you can simply add the imported plugin.
-If it does need configuration, you can specify an array where the first element is the plugin and the second its configuration: `[sass, {mySassConfig: true}]` (see [example](#example)).
+If it does need configuration, you can specify an array where the first element is the plugin and the second its configuration: `[sass, {mySassConfig: 'foobar'}]` (see [example](#example)).
 
 ### `nextConfiguration`
 
@@ -44,7 +44,6 @@ Any direct [next.js configuration](https://github.com/zeit/next.js#custom-config
 // next.config.js
 const withPlugins = require('next-plugins');
 const images = require('next-images');
-const offline = require('next-offline');
 const sass = require('@zeit/next-sass');
 const typescript = require('@zeit/next-typescript');
 
@@ -68,8 +67,6 @@ module.exports = withPlugins([
   // add a plugin without a configuration
   images,
 
-  offline,
-
   // another plugin with a configuration
   [typescript, {
     typescriptLoaderOptions: {
@@ -88,12 +85,6 @@ const withSass = require('@zeit/next-sass');
 const withTypescript = require('@zeit/next-typescript');
 const withImages = require('next-images');
 const withOffline = require('next-offline');
-
-// next.js configuration
-const nextConfig = {
-  useFileSystemPublicRoutes: false,
-  distDir: 'build',
-};
 
 module.exports = withSass(withOffline(withTypescript(withImages({
     {
