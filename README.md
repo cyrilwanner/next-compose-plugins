@@ -89,7 +89,7 @@ const withOffline = require('next-offline');
 module.exports = withSass(withOffline(withTypescript(withImages({
     {
         cssModules: true,
-            cssLoaderOptions: {
+        cssLoaderOptions: {
             importLoaders: 1,
             localIdentName: '[local]___[hash:base64:5]',
         },
