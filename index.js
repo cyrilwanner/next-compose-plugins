@@ -1,4 +1,4 @@
-module.exports = ([ ...plugins ], nextConfig) => {
+module.exports = ([ ...plugins ], nextConfig = {}) => {
   let config = { ...nextConfig };
 
   plugins.forEach((plugin) => {
