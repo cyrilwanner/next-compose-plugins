@@ -1,5 +1,5 @@
 {
-  "name": "next-plugins",
+  "name": "next-compose-plugins",
   "version": "1.0.1",
   "description": "Provides a cleaner API for enabling and configuring plugins for next.js",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cyrilwanner/next-plugins.git"
+    "url": "git+https://github.com/cyrilwanner/next-compose-plugins.git"
   },
   "keywords": [
     "next.js",
@@ -19,7 +19,7 @@
   "author": "Cyril Wanner <info@cyr.li>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/cyrilwanner/next-plugins/issues"
+    "url": "https://github.com/cyrilwanner/next-compose-plugins/issues"
   },
-  "homepage": "https://github.com/cyrilwanner/next-plugins#readme"
+  "homepage": "https://github.com/cyrilwanner/next-compose-plugins#readme"
 }

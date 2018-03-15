@@ -1,11 +1,11 @@
-# 💡 next-plugins [![npm version](https://img.shields.io/npm/v/next-plugins.svg)](https://www.npmjs.com/package/next-plugins) [![license](https://img.shields.io/github/license/cyrilwanner/next-plugins.svg)](https://github.com/cyrilwanner/next-plugins/blob/master/LICENSE)
+# 💡 next-compose-plugins [![npm version](https://img.shields.io/npm/v/next-compose-plugins.svg)](https://www.npmjs.com/package/next-compose-plugins) [![license](https://img.shields.io/github/license/cyrilwanner/next-compose-plugins.svg)](https://github.com/cyrilwanner/next-compose-plugins/blob/master/LICENSE)
 
 Provides a cleaner API for enabling and configuring plugins for [next.js](https://github.com/zeit/next.js) because the default way next.js suggests to enable and configure plugins can get unclear and confusing when you have many plugins.
 
 It is often unclear which plugins are enabled or which configuration belongs to which plugin because they are nested and share one configuration object.
 This can also lead to orphaned configuration values when updating or removing plugins.
 
-`next-plugins` tries to eliminate this case by providing an alternative API for enabling and configuring plugins where each plugin has their own configuration object.
+`next-compose-plugins` tries to eliminate this case by providing an alternative API for enabling and configuring plugins where each plugin has their own configuration object.
 
 ## Table of contents
 
@@ -18,13 +18,13 @@ This can also lead to orphaned configuration values when updating or removing pl
 ## Installation
 
 ```
-npm install --save next-plugins
+npm install --save next-compose-plugins
 ```
 
 ## Usage
 ```javascript
 // next.config.js
-const withPlugins = require('next-plugins');
+const withPlugins = require('next-compose-plugins');
 
 module.exports = withPlugins([...plugins], nextConfiguration);
 ```
@@ -43,7 +43,7 @@ Any direct [next.js configuration](https://github.com/zeit/next.js#custom-config
 
 ```javascript
 // next.config.js
-const withPlugins = require('next-plugins');
+const withPlugins = require('next-compose-plugins');
 const images = require('next-images');
 const sass = require('@zeit/next-sass');
 const typescript = require('@zeit/next-typescript');
@@ -111,4 +111,4 @@ See [zeit/next-plugins](https://github.com/zeit/next-plugins) for a list of offi
 
 ## License
 
-[MIT](https://github.com/cyrilwanner/next-plugins/blob/master/LICENSE) © Cyril Wanner
+[MIT](https://github.com/cyrilwanner/next-compose-plugins/blob/master/LICENSE) © Cyril Wanner
