@@ -2,9 +2,15 @@
   "name": "next-compose-plugins",
   "version": "1.0.3",
   "description": "Provides a cleaner API for enabling and configuring plugins for next.js",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src -d lib",
+    "watch": "babel --watch src -d lib",
+    "test": "jest --coverage lib",
+    "prepack": "rimraf lib/**/__tests__"
   },
   "repository": {
     "type": "git",
@@ -13,6 +19,7 @@
   "keywords": [
     "next.js",
     "next",
+    "react",
     "plugins",
     "compose"
   ],
@@ -21,5 +28,15 @@
   "bugs": {
     "url": "https://github.com/cyrilwanner/next-compose-plugins/issues"
   },
-  "homepage": "https://github.com/cyrilwanner/next-compose-plugins#readme"
+  "homepage": "https://github.com/cyrilwanner/next-compose-plugins#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.44",
+    "@babel/core": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.44",
+    "@babel/preset-env": "^7.0.0-beta.44",
+    "babel-core": "^7.0.0-beta.44",
+    "jest": "^22.4.3",
+    "npm-autoinstaller": "^1.3.1",
+    "rimraf": "^2.6.2"
+  }
 }
