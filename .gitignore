@@ -8,3 +8,7 @@
 # node
 node_modules
 npm-debug.log*
+
+# project
+lib
+coverage
