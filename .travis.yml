@@ -9,4 +9,5 @@ install:
 script:
   - npm run build
   - npm test
+  - npm run lint
   - codecov
