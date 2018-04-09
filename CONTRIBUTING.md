@@ -1,7 +1,7 @@
 # Contributing
 
 All contributions to this repository are more than welcome and appreciated a lot 🎉
-Don't hesitate to [create a new issue](https://github.com/cyrilwanner/next-compose-plugins/issues/new) if you have any question. 
+Don't hesitate to [create a new issue](https://github.com/cyrilwanner/next-compose-plugins/issues/new) if you have any question.
 
 ## Setup instructions
 
@@ -18,6 +18,7 @@ We write tests for all major functionality of this plugin to ensure a good code 
 Please update and/or write new tests when contributing to this repository.
 
 You can run the tests locally with `npm test`.
+To watch for code changes and automatically run tests on changes, use `npm run test:watch` (babel needs to be started in watching mode too for this in a separate process with `npm run watch`).
 Please note that test will get executed against the built sources, so make sure you are either watching the files or build them once (`npm run build`) before running the tests.
 
 ## Coding style
