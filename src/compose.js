@@ -72,12 +72,12 @@ export const composePlugins = (phase, plugins, initialConfig) => {
     const mergedPluginConfig = mergePhaseConfiguration(phase, pluginConfig);
     const updatedConfig = pluginFunction({
       ...config,
-      mergedPluginConfig,
+      ...mergedPluginConfig,
     }, nextComposePluginsParam);
 
     // check if the plugin itself has defined in phases it should run
     // and the user did not overwrite it
-    if (phases !== null && updatedConfig.phases) {
+    if (phases === null && updatedConfig.phases) {
       if (!isInCurrentPhase(phase, updatedConfig.phases)) {
         return;
       }
