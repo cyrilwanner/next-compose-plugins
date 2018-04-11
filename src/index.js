@@ -1,4 +1,5 @@
 import { composePlugins } from './compose';
+import { markOptional } from './optional';
 
 /**
  * Composes all plugins together.
@@ -15,8 +16,6 @@ export const withPlugins = ([...plugins], nextConfig = {}) => (phase, { defaultC
   return composePlugins(phase, plugins, config);
 };
 
-export const optional = () => {
-  // todo
-};
+export const optional = markOptional;
 
 export default withPlugins;
