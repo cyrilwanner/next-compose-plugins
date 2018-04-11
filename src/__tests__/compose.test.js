@@ -1,5 +1,6 @@
 import 'jest';
 import { parsePluginConfig, composePlugins } from '../compose';
+import { markOptional } from '../optional';
 
 const testPlugin = { test: 'plugin' };
 
@@ -283,5 +284,56 @@ describe('next-compose-plugins/compose', () => {
     expect(plugin1).toHaveBeenCalledTimes(1);
     expect(plugin2).toHaveBeenCalledTimes(1);
     expect(plugin3).toHaveBeenCalledTimes(1);
+  });
+
+  it('loads an optional plugin in the correct phase', () => {
+    const plugin1 = jest.fn(nextConfig => ({
+      ...nextConfig,
+      plugin1Config: 'foo',
+    }));
+
+    const plugin2 = jest.fn(nextConfig => ({
+      ...nextConfig,
+      plugin2Config: 'bar',
+    }));
+
+    const result = composePlugins(PHASE_DEVELOPMENT_SERVER, [
+      [plugin1, [PHASE_DEVELOPMENT_SERVER]],
+      [markOptional(() => plugin2), [PHASE_DEVELOPMENT_SERVER]],
+    ], { initial: 'config' });
+
+    expect(result).toEqual({
+      initial: 'config',
+      plugin1Config: 'foo',
+      plugin2Config: 'bar',
+    });
+
+    expect(plugin1).toHaveBeenCalledTimes(1);
+    expect(plugin2).toHaveBeenCalledTimes(1);
+  });
+
+  it('does not load an optional plugin in the wrong phase', () => {
+    const plugin1 = jest.fn(nextConfig => ({
+      ...nextConfig,
+      plugin1Config: 'foo',
+    }));
+
+    const plugin2 = jest.fn(nextConfig => ({
+      ...nextConfig,
+      plugin2Config: 'bar',
+    }));
+
+    const result = composePlugins(PHASE_DEVELOPMENT_SERVER, [
+      [plugin1, [PHASE_DEVELOPMENT_SERVER]],
+      [markOptional(() => plugin2), [PHASE_PRODUCTION_SERVER]],
+    ], { initial: 'config' });
+
+    expect(result).toEqual({
+      initial: 'config',
+      plugin1Config: 'foo',
+    });
+
+    expect(plugin1).toHaveBeenCalledTimes(1);
+    expect(plugin2).toHaveBeenCalledTimes(0);
   });
 });

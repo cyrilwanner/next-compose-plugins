@@ -1,4 +1,5 @@
 import { isInCurrentPhase, mergePhaseConfiguration } from './phases';
+import { isOptional, resolveOptionalPlugin } from './optional';
 
 /**
  * Plugins can be added to `withPlugins` in multiple ways.
@@ -69,8 +70,14 @@ export const composePlugins = (phase, plugins, initialConfig) => {
       }
     }
 
+    let resolvedPlugin = pluginFunction;
+
+    if (isOptional(pluginFunction)) {
+      resolvedPlugin = resolveOptionalPlugin(pluginFunction);
+    }
+
     const mergedPluginConfig = mergePhaseConfiguration(phase, pluginConfig);
-    const updatedConfig = pluginFunction({
+    const updatedConfig = resolvedPlugin({
       ...config,
       ...mergedPluginConfig,
     }, nextComposePluginsParam);
