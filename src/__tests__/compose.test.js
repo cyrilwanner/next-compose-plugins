@@ -336,4 +336,23 @@ describe('next-compose-plugins/compose', () => {
     expect(plugin1).toHaveBeenCalledTimes(1);
     expect(plugin2).toHaveBeenCalledTimes(0);
   });
+
+  it('handles objects as plugins', () => {
+    const plugin = {
+      plugin1Config: 'foo',
+    };
+
+    const result = composePlugins(PHASE_DEVELOPMENT_SERVER, [plugin], { initial: 'config' });
+
+    expect(result).toEqual({
+      initial: 'config',
+      plugin1Config: 'foo',
+    });
+  });
+
+  it('throws an error for incompatible plugins', () => {
+    const plugin = ['something', 'weird'];
+
+    expect(() => composePlugins(PHASE_DEVELOPMENT_SERVER, [plugin], {})).toThrowError('Incompatible plugin');
+  });
 });

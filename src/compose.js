@@ -77,10 +77,18 @@ export const composePlugins = (phase, plugins, initialConfig) => {
     }
 
     const mergedPluginConfig = mergePhaseConfiguration(phase, pluginConfig);
-    const updatedConfig = resolvedPlugin({
-      ...config,
-      ...mergedPluginConfig,
-    }, nextComposePluginsParam);
+    let updatedConfig;
+
+    if (typeof resolvedPlugin === 'function') {
+      updatedConfig = resolvedPlugin({
+        ...config,
+        ...mergedPluginConfig,
+      }, nextComposePluginsParam);
+    } else if (typeof resolvedPlugin === 'object') {
+      updatedConfig = resolvedPlugin;
+    } else {
+      throw new Error('Incompatible plugin: plugin needs to export either a function or an object!');
+    }
 
     // check if the plugin itself has defined in phases it should run
     // and the user did not overwrite it
