@@ -1,14 +1,24 @@
-module.exports = ([...plugins], nextConfig = {}) => {
-  let config = { ...nextConfig };
+import { composePlugins } from './compose';
+import { markOptional } from './optional';
 
-  plugins.forEach((plugin) => {
-    if (plugin instanceof Array) {
-      const [initPlugin, pluginConfig] = plugin;
-      config = initPlugin({ ...config, ...(pluginConfig || {}) });
-    } else {
-      config = plugin(config);
-    }
-  });
+/**
+ * Composes all plugins together.
+ *
+ * @param {array} plugins - all plugins to load and initialize
+ * @param {object} nextConfig - direct configuration for next.js (optional)
+ */
+const withPlugins = ([...plugins], nextConfig = {}) => (phase, { defaultConfig }) => {
+  const config = {
+    ...defaultConfig,
+    ...nextConfig,
+  };
 
-  return config;
+  return composePlugins(phase, plugins, config);
 };
+
+// define exports
+const exports = withPlugins;
+exports.withPlugins = withPlugins;
+exports.optional = markOptional;
+
+module.exports = exports;
