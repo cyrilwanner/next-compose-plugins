@@ -7,7 +7,7 @@ import { markOptional } from './optional';
  * @param {array} plugins - all plugins to load and initialize
  * @param {object} nextConfig - direct configuration for next.js (optional)
  */
-export const withPlugins = ([...plugins], nextConfig = {}) => (phase, { defaultConfig }) => {
+const withPlugins = ([...plugins], nextConfig = {}) => (phase, { defaultConfig }) => {
   const config = {
     ...defaultConfig,
     ...nextConfig,
@@ -16,6 +16,9 @@ export const withPlugins = ([...plugins], nextConfig = {}) => (phase, { defaultC
   return composePlugins(phase, plugins, config);
 };
 
-export const optional = markOptional;
+// define exports
+const exports = withPlugins;
+exports.withPlugins = withPlugins;
+exports.optional = markOptional;
 
-export default withPlugins;
+module.exports = exports;
