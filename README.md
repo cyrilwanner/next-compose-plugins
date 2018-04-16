@@ -133,7 +133,7 @@ Any direct [next.js configuration](https://github.com/zeit/next.js#custom-config
 ### Optional plugins
 
 If a plugin should only get loaded when it is used, you can use the `optional` helper function.
-This can be useful if the plugin is only in the `devDependencies` and so you only want to apply it during `PHASE_DEVELOPMENT_SERVER`.
+This can especially be useful if the plugin is only in the `devDependencies` and so may not be available in all phases.
 If you don't use the `optional` helper in this case, you would get an error.
 
 ```javascript
