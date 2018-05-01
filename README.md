@@ -11,6 +11,9 @@ While `next-compose-plugins` tries to eliminate this case by providing an altern
 
 - [Installation](#installation)
 - [Usage](#usage)
+  - [`withPlugins`](#usage)
+  - [Optional plugins](#optional-plugins)
+  - [Extend another config file](#extend-another-config-file)
 - [Plugin developers](#plugin-developers)
 - [Examples](#examples)
 - [See also](#see-also)
@@ -145,6 +148,40 @@ module.exports = withPlugins([
 ]);
 ```
 
+### Extend another config file
+
+It sometimes makes sense to split a `next.config.js` file into multiple files, for example when you have more than just one next.js project in one repository.
+You can then define the base config in one file and add project specific plugins/settings in the config file or the project.
+
+To easily archive this, you can use the `extend` helper in the `next.config.js` file of your project.
+
+```javascript
+// next.config.js
+const { withPlugins, extend } = require('next-compose-plugins');
+const baseConfig = require('./base.next.config.js');
+
+const nextConfig = { /* ... */ };
+
+module.exports = extend(baseConfig).withPlugins([
+  [sass, {
+    cssModules: true,
+  }],
+], nextConfig);
+```
+
+```javascript
+// base.next.config.js
+const withPlugins = require('next-compose-plugins');
+
+module.exports = withPlugins([
+  [typescript, {
+    typescriptLoaderOptions: {
+      transpileOnly: false,
+    },
+  }],
+]);
+```
+
 ## Plugin developers
 
 This plugin has a few extra functionality which you can use as a plugin developer.
@@ -227,7 +264,6 @@ module.exports = withPlugins([
   [sass, {
     cssModules: true,
     cssLoaderOptions: {
-      importLoaders: 1,
       localIdentName: '[local]___[hash:base64:5]',
     },
   }],
@@ -273,12 +309,10 @@ module.exports = withPlugins([
   [sass, {
     cssModules: true,
     cssLoaderOptions: {
-      importLoaders: 1,
       localIdentName: '[local]___[hash:base64:5]',
     },
     [PHASE_PRODUCTION_BUILD + PHASE_EXPORT]: {
       cssLoaderOptions: {
-        importLoaders: 1,
         localIdentName: '[hash:base64:8]',
       },
     },
