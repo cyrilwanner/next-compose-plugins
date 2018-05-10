@@ -1,4 +1,4 @@
-# 💡 next-compose-plugins [![npm version](https://img.shields.io/npm/v/next-compose-plugins.svg)](https://www.npmjs.com/package/next-compose-plugins) [![license](https://img.shields.io/github/license/cyrilwanner/next-compose-plugins.svg)](https://github.com/cyrilwanner/next-compose-plugins/blob/master/LICENSE)
+# :bulb: next-compose-plugins [![npm version](https://img.shields.io/npm/v/next-compose-plugins.svg)](https://www.npmjs.com/package/next-compose-plugins) [![license](https://img.shields.io/github/license/cyrilwanner/next-compose-plugins.svg)](https://github.com/cyrilwanner/next-compose-plugins/blob/master/LICENSE)
 
 Provides a cleaner API for enabling and configuring plugins for [next.js](https://github.com/zeit/next.js) because the default way next.js suggests to enable and configure plugins can get unclear and confusing when you have many plugins.
 
@@ -132,6 +132,26 @@ This will apply the plugin in all phases except `PHASE_DEVELOPMENT_SERVER`.
 ### `nextConfiguration`
 
 Any direct [next.js configuration](https://github.com/zeit/next.js#custom-configuration) can go here, for example: `{distDir: 'dist'}`.
+
+You can also customize the webpack configuration of next.js within this object.
+
+```javascript
+const withPlugins = require('next-compose-plugins');
+
+const nextConfig = {
+  distDir: 'build',
+  webpack: (config, options) => {
+
+    // modify the `config` here
+
+    return config;
+  },
+};
+
+module.exports = withPlugins([
+  // add plugins here..
+], nextConfig);
+```
 
 ### Optional plugins
 
