@@ -1,4 +1,4 @@
-# :bulb: next-compose-plugins [![npm version](https://img.shields.io/npm/v/next-compose-plugins.svg)](https://www.npmjs.com/package/next-compose-plugins) [![license](https://img.shields.io/github/license/cyrilwanner/next-compose-plugins.svg)](https://github.com/cyrilwanner/next-compose-plugins/blob/master/LICENSE)
+# :bulb: next-compose-plugins [![npm version](https://badgen.net/npm/v/next-compose-plugins)](https://www.npmjs.com/package/next-compose-plugins) [![license](https://badgen.net/github/license/cyrilwanner/next-compose-plugins)](https://github.com/cyrilwanner/next-compose-plugins/blob/master/LICENSE) [![downloads](https://badgen.net/npm/dt/next-compose-plugins)](https://www.npmjs.com/package/next-compose-plugins)
 
 Provides a cleaner API for enabling and configuring plugins for [next.js](https://github.com/zeit/next.js) because the default way next.js suggests to enable and configure plugins can get unclear and confusing when you have many plugins.
 
