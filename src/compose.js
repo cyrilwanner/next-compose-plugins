@@ -58,7 +58,7 @@ export const composePlugins = (phase, plugins, initialConfig) => {
     nextComposePlugins: true,
     phase,
   };
-  let config = { ...initialConfig };
+  let config = mergePhaseConfiguration(phase, { ...initialConfig });
 
   plugins.forEach((plugin) => {
     const { pluginFunction, pluginConfig, phases } = parsePluginConfig(plugin);

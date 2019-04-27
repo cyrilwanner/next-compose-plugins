@@ -101,4 +101,28 @@ describe('next-compose-plugins', () => {
     expect(plugin1).toHaveBeenCalledTimes(1);
     expect(plugin2).toHaveBeenCalledTimes(1);
   });
+
+  it('resolves phases specific configs in the next configuration', () => {
+    const baseConfig = withPlugins([], {
+      baseConfig: 'hello',
+      foo: 'bar',
+      [PHASE_DEVELOPMENT_SERVER]: {
+        foo: 'baz',
+      },
+      [`!${PHASE_PRODUCTION_SERVER}`]: {
+        prod: false,
+      },
+      [`!${PHASE_DEVELOPMENT_SERVER}`]: {
+        dev: false,
+      },
+    });
+
+    const result = baseConfig(PHASE_DEVELOPMENT_SERVER, {});
+
+    expect(result).toEqual({
+      baseConfig: 'hello',
+      foo: 'baz',
+      prod: false,
+    });
+  });
 });

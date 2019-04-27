@@ -153,6 +153,17 @@ module.exports = withPlugins([
 ], nextConfig);
 ```
 
+Phases are also supported within the `nextConfiguration` object and have the same syntax as in [plugin `configuration` objects](#configuration-object).
+```javascript
+const { PHASE_DEVELOPMENT_SERVER } = require('next-server/constants');
+const nextConfig = {
+  distDir: 'build',
+  ['!' + PHASE_DEVELOPMENT_SERVER]: {
+    assetPrefix: 'https://my.cdn.com',
+  },
+};
+```
+
 ### Optional plugins
 
 If a plugin should only get loaded when it is used, you can use the `optional` helper function.
