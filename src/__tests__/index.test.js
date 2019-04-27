@@ -1,5 +1,5 @@
 import 'jest';
-import { withPlugins, extend } from '../index';
+import { withPlugins, extend } from '../index'; // eslint-disable-line
 
 const PHASE_DEVELOPMENT_SERVER = 'phase-development-server';
 const PHASE_PRODUCTION_SERVER = 'phase-production-server';

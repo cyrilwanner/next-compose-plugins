@@ -25,10 +25,10 @@ describe('next-compose-plugins/phases', () => {
 
     // check string syntax
     expect(isInCurrentPhase(PHASE_DEVELOPMENT_SERVER, PHASE_DEVELOPMENT_SERVER)).toEqual(true);
-    expect(isInCurrentPhase(PHASE_DEVELOPMENT_SERVER, PHASE_DEVELOPMENT_SERVER +
-      PHASE_PRODUCTION_SERVER)).toEqual(true);
-    expect(isInCurrentPhase(PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_SERVER +
-      PHASE_DEVELOPMENT_SERVER)).toEqual(true);
+    expect(isInCurrentPhase(PHASE_DEVELOPMENT_SERVER, PHASE_DEVELOPMENT_SERVER
+      + PHASE_PRODUCTION_SERVER)).toEqual(true);
+    expect(isInCurrentPhase(PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_SERVER
+      + PHASE_DEVELOPMENT_SERVER)).toEqual(true);
   });
 
   it('checks when a plugin should not get applied in the current phase', () => {
@@ -45,10 +45,10 @@ describe('next-compose-plugins/phases', () => {
 
     // check string syntax
     expect(isInCurrentPhase(PHASE_PRODUCTION_BUILD, PHASE_DEVELOPMENT_SERVER)).toEqual(false);
-    expect(isInCurrentPhase(PHASE_PRODUCTION_BUILD, PHASE_DEVELOPMENT_SERVER +
-      PHASE_PRODUCTION_SERVER)).toEqual(false);
-    expect(isInCurrentPhase(PHASE_PRODUCTION_BUILD, PHASE_PRODUCTION_SERVER +
-      PHASE_DEVELOPMENT_SERVER)).toEqual(false);
+    expect(isInCurrentPhase(PHASE_PRODUCTION_BUILD, PHASE_DEVELOPMENT_SERVER
+      + PHASE_PRODUCTION_SERVER)).toEqual(false);
+    expect(isInCurrentPhase(PHASE_PRODUCTION_BUILD, PHASE_PRODUCTION_SERVER
+      + PHASE_DEVELOPMENT_SERVER)).toEqual(false);
   });
 
   it('checks when a plugin should get applied in the current phase with a negated config', () => {

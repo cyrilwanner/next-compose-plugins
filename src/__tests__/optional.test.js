@@ -1,5 +1,10 @@
 import 'jest';
-import { markOptional, isOptional, resolveOptionalPlugin, OPTIONAL_SYMBOL } from '../optional';
+import {
+  markOptional,
+  isOptional,
+  resolveOptionalPlugin,
+  OPTIONAL_SYMBOL,
+} from '../optional';
 
 describe('next-compose-plugins/optional', () => {
   /**
