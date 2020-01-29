@@ -68,7 +68,7 @@ You can also overwrite specific configuration keys for a phase:
 
 ```javascript
 const withPlugins = require('next-compose-plugins');
-const { PHASE_PRODUCTION_BUILD } = require('next-server/constants');
+const { PHASE_PRODUCTION_BUILD } = require('next/constants');
 const sass = require('@zeit/next-sass');
 
 module.exports = withPlugins([
@@ -88,16 +88,16 @@ module.exports = withPlugins([
 
 This will overwrite the `cssLoaderOptions` with the new `localIdentName` specified, but **only** during production build.
 You can also combine multiple phases (`[PHASE_PRODUCTION_BUILD + PHASE_PRODUCTION_SERVER]: {}`) or exclude a phase (`['!' + PHASE_PRODUCTION_BUILD]: {}` which will overwrite the config in all phases except `PRODUCTION_BUILD`).
-You can use all phases [next.js provides](https://github.com/zeit/next.js/blob/canary/packages/next-server/lib/constants.ts).
+You can use all phases [next.js provides](https://github.com/zeit/next.js/blob/canary/packages/next/next-server/lib/constants.ts#L1-L4).
 
 ##### `phases?: array`
 
 If the plugin should only be applied in specific phases, you can specify them here.
-You can use all phases [next.js provides](https://github.com/zeit/next.js/blob/canary/packages/next-server/lib/constants.ts).
+You can use all phases [next.js provides](https://github.com/zeit/next.js/blob/canary/packages/next/next-server/lib/constants.ts#L1-L4).
 
 ```javascript
 const withPlugins = require('next-compose-plugins');
-const { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD } = require('next-server/constants');
+const { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD } = require('next/constants');
 const sass = require('@zeit/next-sass');
 
 module.exports = withPlugins([
@@ -114,7 +114,7 @@ You can also negate the phases with a leading `!`:
 
 ```javascript
 const withPlugins = require('next-compose-plugins');
-const { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD } = require('next-server/constants');
+const { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD } = require('next/constants');
 const sass = require('@zeit/next-sass');
 
 module.exports = withPlugins([
@@ -155,7 +155,7 @@ module.exports = withPlugins([
 
 Phases are also supported within the `nextConfiguration` object and have the same syntax as in [plugin `configuration` objects](#configuration-object).
 ```javascript
-const { PHASE_DEVELOPMENT_SERVER } = require('next-server/constants');
+const { PHASE_DEVELOPMENT_SERVER } = require('next/constants');
 const nextConfig = {
   distDir: 'build',
   ['!' + PHASE_DEVELOPMENT_SERVER]: {
@@ -172,7 +172,7 @@ If you don't use the `optional` helper in this case, you would get an error.
 
 ```javascript
 const { withPlugins, optional } = require('next-compose-plugins');
-const { PHASE_DEVELOPMENT_SERVER } = require('next-server/constants');
+const { PHASE_DEVELOPMENT_SERVER } = require('next/constants');
 
 module.exports = withPlugins([
   [optional(() => require('@zeit/next-sass')), { /* optional configuration */ }, [PHASE_DEVELOPMENT_SERVER]],
@@ -223,7 +223,7 @@ However, if you use them, you should mention somewhere in your readme or install
 You can specify in which phases your plugin should get executed within the object you return:
 
 ```javascript
-const { PHASE_DEVELOPMENT_SERVER } = require('next-server/constants');
+const { PHASE_DEVELOPMENT_SERVER } = require('next/constants');
 
 module.exports = (nextConfig = {}) => {
   return Object.assign({}, nextConfig, {
@@ -326,7 +326,7 @@ const {
   PHASE_PRODUCTION_SERVER,
   PHASE_DEVELOPMENT_SERVER,
   PHASE_EXPORT,
-} = require('next-server/constants');
+} = require('next/constants');
 
 // next.js configuration
 const nextConfig = {
