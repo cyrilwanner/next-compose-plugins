@@ -25,10 +25,17 @@ While `next-compose-plugins` tries to eliminate this case by providing an altern
 npm install --save next-compose-plugins
 ```
 
-This plugin requires next.js `>= 5.1` because it depends on the phases introduced within this version.
-If you are still on `5.0.x`, you can install v1 of this plugin: `npm install --save next-compose-plugins@1`.
+---
+
+<a href="https://www.creative-tim.com/product/nextjs-material-dashboard-pro/?ref=next-compose-plugins"><img src="https://cyrilwanner.github.io/packages/next-compose-plugins/assets/material-dashboard.png?v=2" alt="NextJS Material Dashboard" align="right" width="300px"></a>
+<br />
+
+Building a **Dashboard** or **Admin UI**? Or do you want to see a **usage example** of `next-compose-plugins` in a real world project? Check out the [NextJS Material Dashboard](https://www.creative-tim.com/product/nextjs-material-dashboard-pro/?ref=next-compose-plugins) by our partners [Creative Tim](https://www.creative-tim.com/?ref=next-compose-plugins) to get you started.
+
+<br /><br /><br />
 
 ## Usage
+
 ```javascript
 // next.config.js
 const withPlugins = require('next-compose-plugins');
@@ -274,6 +281,10 @@ Currently, it contains these values:
 
 ## Examples
 
+### Real world example
+
+Check out the [NextJS Material Dashboard](https://www.creative-tim.com/product/nextjs-material-dashboard-pro/?ref=next-compose-plugins) by our partners [Creative Tim](https://www.creative-tim.com/?ref=next-compose-plugins) to see how `next-compose-plugins` was used in a real world application.
+
 ### Basic example
 
 ```javascript
@@ -396,7 +407,7 @@ module.exports = withSass(withOffline(withTypescript(withImages({
 
 ## See also
 
-See [zeit/next-plugins](https://github.com/zeit/next-plugins) for a list of official and community made plugins for [next.js](https://github.com/zeit/next.js).
+See [vercel/next-plugins](https://github.com/vercel/next-plugins) for a list of official and community made plugins for [next.js](https://github.com/vercel/next.js).
 
 ## License
 
