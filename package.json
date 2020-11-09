@@ -1,6 +1,6 @@
 {
   "name": "next-compose-plugins",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Provides a cleaner API for enabling and configuring plugins for next.js",
   "main": "lib/index.js",
   "files": [
