@@ -95,12 +95,12 @@ module.exports = withPlugins([
 
 This will overwrite the `cssLoaderOptions` with the new `localIdentName` specified, but **only** during production build.
 You can also combine multiple phases (`[PHASE_PRODUCTION_BUILD + PHASE_PRODUCTION_SERVER]: {}`) or exclude a phase (`['!' + PHASE_PRODUCTION_BUILD]: {}` which will overwrite the config in all phases except `PRODUCTION_BUILD`).
-You can use all phases [next.js provides](https://github.com/zeit/next.js/blob/canary/packages/next/next-server/lib/constants.ts#L1-L4).
+You can use all phases [next.js provides](https://github.com/vercel/next.js/blob/canary/packages/next/shared/lib/constants.ts#L1-L5).
 
 ##### `phases?: array`
 
 If the plugin should only be applied in specific phases, you can specify them here.
-You can use all phases [next.js provides](https://github.com/zeit/next.js/blob/canary/packages/next/next-server/lib/constants.ts#L1-L4).
+You can use all phases [next.js provides](https://github.com/vercel/next.js/blob/canary/packages/next/shared/lib/constants.ts#L1-L5).
 
 ```javascript
 const withPlugins = require('next-compose-plugins');
